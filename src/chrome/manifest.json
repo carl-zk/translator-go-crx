@@ -1,0 +1,44 @@
+{
+  "name": "Translator Go",
+  "version": "0.1",
+  "description": "auto translate any language to Chinese",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "declarativeContent",
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["scripts/background.js", "scripts/hot-reload.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts/content.js"],
+      "css": ["styles/style.css"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Translator Go",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "options_page": "option/options.html",
+  "web_accessible_resources": ["images/*.png", "styles/*", "translator/*.htm"],
+  "manifest_version": 2
+}

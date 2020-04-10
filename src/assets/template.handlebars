@@ -1,0 +1,24 @@
+<div id=__result>
+  <div class=title><span>{{word}}</span>
+    <div class=dit>{{dit}}</div>
+  </div>
+  {{!-- <div class=dit>{{dit}}</div> --}}
+  <div class="tooltip">Hover over me
+    <span class="tooltiptext">Tooltip text</span>
+  </div>
+  <ul class=content>
+    {{#each content}}
+    <li>{{this.pos}} {{this.en}} {{this.zh}}</li>
+    {{/each}}
+  </ul>
+  <div class=phonetic>
+
+    {{#each phonetic}}
+    <a href="{{this.filename}}">{{this.text}}</a>{{this.type}}<br />
+    <audio controls></audio>
+    <source src="{{this.filename}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,81 @@
+#__result {
+    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
+    font-size: 16x;
+    font-weight: lighter;
+    width: 550px;
+    height: 450px;
+    background-color: blanchedalmond;
+    overflow: scroll;
+    position: absolute;
+    left: none;
+    top: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+#__result ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-weight: 400;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    float: left;
+}
+
+.title span {
+    font-family: algerian, courier;
+    line-height: 80%;
+    padding-right: 0.3em;
+    display: block;
+}
+
+.title span:hover {
+    color: #00ff00;
+    display: inline;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.dit {
+    visibility: hidden;
+}
+
+.title:hover .dit {
+    visibility: visible;
+}
+
+.content {
+    white-space: pre-line;
+}
+
+.phonetic p a {
+    white-space: pre-line;
+    background-color: green;
+    word-spacing: 15px;
+}
