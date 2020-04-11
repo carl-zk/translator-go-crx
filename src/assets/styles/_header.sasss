@@ -1,7 +1,0 @@
-%base-shared font-family: 'Microsoft YaHei',
-Arial,
-Helvetica,
-sans-serif,
-'宋体';
-
-.__result --panel-width: 600px all: unset box-sizing: border-box position: absolute z-index: 9999 display: flex text-align: initial max-width: var(--panel-width) min-width: var(--panel-width) color: rgb(17, 17, 17) contain: layout text-rendering: optimizelegibility -webkit-font-smoothing: antialiased box-shadow: rgba(0, 0, 0, 0.12) 0px 12px 45px 0px flex-flow: column padding: 15px 25px 12px background: rgb(255, 255, 255) border-radius: 6px #__translator position: absolute top: 0px left: 0px z-index: 10000 width: unset height: unset margin: unset padding: unset border: unset outline: unset

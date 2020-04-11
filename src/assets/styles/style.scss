@@ -1,81 +1,97 @@
-#__result {
-    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
-    font-size: 16x;
-    font-weight: lighter;
-    width: 550px;
-    height: 450px;
-    background-color: blanchedalmond;
-    overflow: scroll;
+@import './tooltip';
+
+#__panel {
+  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
+  font-size: 16x;
+  font-weight: lighter;
+  color: black;
+  //   border: 1px #74c9e4;
+  border-radius: 6px;
+  background-color: blanchedalmond;
+  position: absolute;
+  z-index: 800;
+  box-sizing: border-box;
+}
+.__result {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 6px;
+  background-color: white;
+  z-index: 801;
+}
+
+.__header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  height: 2em;
+}
+
+.__word {
+  flex: content;
+  font-weight: bold;
+  font-size: 1.5em;
+  //   padding: 0 1em;
+  margin: auto;
+}
+
+.__audio_container {
+  align-self: flex-start;
+  align-items: flex-end;
+  align-content: flex-end;
+  display: inline-block;
+  height: 1em;
+  font-size: 1em;
+  margin: auto;
+}
+
+.__audio_item {
+  flex-grow: 50%;
+  align-self: flex-end;
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  audio.__source {
+    visibility: visible;
     position: absolute;
-    left: none;
-    top: none;
-    padding: 5px;
-    margin: 5px;
+    height: 1em;
+    left: 1.5em;
+    opacity: 0;
+  }
+  .__type {
+    font-weight: bold;
+    font-style: italic;
+  }
+  .__phonetic_symbol {
+    // text-decoration: underline;
+    border-bottom: 1px dashed;
+    &:hover {
+      color: green;
+    }
+  }
 }
 
-#__result ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  margin: 10px;
 }
 
-.title {
-    font-weight: 400;
-    line-height: 1.334;
-    letter-spacing: 0em;
-    float: left;
-}
-
-.title span {
-    font-family: algerian, courier;
-    line-height: 80%;
-    padding-right: 0.3em;
-    display: block;
-}
-
-.title span:hover {
-    color: #00ff00;
-    display: inline;
-}
-
-.tooltip {
-    position: relative;
+.__item {
+  display: inline-block;
+  height: 1.5em;
+  span {
     display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
-.dit {
-    visibility: hidden;
-}
-
-.title:hover .dit {
-    visibility: visible;
-}
-
-.content {
-    white-space: pre-line;
-}
-
-.phonetic p a {
-    white-space: pre-line;
-    background-color: green;
-    word-spacing: 15px;
+    width: 3em;
+    padding-right: 1em;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-align: right;
+  }
 }

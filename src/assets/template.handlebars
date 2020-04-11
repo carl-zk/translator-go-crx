@@ -1,24 +1,31 @@
-<div id=__result>
-  <div class=title><span>{{word}}</span>
-    <div class=dit>{{dit}}</div>
+<div class='__result'>
+  <div class=" __header">
+    <div class="__word __tooltip">
+      {{word}}
+      <span class="__tooltiptext">{{dit}}</span>
+    </div>
+    <div class="__audio_container">
+      {{#each phonetic}}
+      <div class="__audio_item">
+        <span class=" __type">{{this.type}} </span>
+        <span class="__phonetic_symbol">[{{this.text}}]</span>
+        <audio controls class="__source">
+          <source src="https:{{filename}}" type="audio/mp3">
+        </audio>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      {{/each}}
+    </div>
   </div>
-  {{!-- <div class=dit>{{dit}}</div> --}}
-  <div class="tooltip">Hover over me
-    <span class="tooltiptext">Tooltip text</span>
-  </div>
-  <ul class=content>
+  <div class="__body">
     {{#each content}}
-    <li>{{this.pos}} {{this.en}} {{this.zh}}</li>
-    {{/each}}
-  </ul>
-  <div class=phonetic>
-
-    {{#each phonetic}}
-    <a href="{{this.filename}}">{{this.text}}</a>{{this.type}}<br />
-    <audio controls></audio>
-    <source src="{{this.filename}}" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio>
+    <div class="__item">
+      <span>{{this.pos}}</span>
+      <div class="__tooltip">
+        {{this.en}}
+        <span class="__tooltiptext">{{this.zh}}</span>
+      </div>
+    </div>
     {{/each}}
   </div>
 </div>

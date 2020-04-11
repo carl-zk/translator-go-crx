@@ -8,4 +8,22 @@ module.exports = merge(common, {
     filename: '[name].[contenthash].js',
     chunkFilename: '[name].[contenthash].js',
   },
+  module: {
+    rules: [],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+    minimize: true,
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
 })

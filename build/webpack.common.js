@@ -1,6 +1,9 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -14,12 +17,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.s[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          // {
+          //   loader:'style-loader',
+          //   options:{injectType:'linkTag'}
+          // },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.tsx?$/,
@@ -50,15 +57,13 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Translator Go',
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
     }),
   ],
 }
