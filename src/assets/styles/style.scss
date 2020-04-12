@@ -5,7 +5,6 @@
   font-size: 16x;
   font-weight: lighter;
   color: black;
-  //   border: 1px #74c9e4;
   border-radius: 6px;
   background-color: blanchedalmond;
   position: absolute;
@@ -15,7 +14,9 @@
 .__result {
   display: flex;
   flex-direction: column;
-  max-width: 40em;
+  justify-content: space-around;
+  max-width: 30em;
+  min-height: 3em;
   flex-wrap: wrap;
   padding: 5px;
   margin: 5px;
@@ -29,39 +30,40 @@
   flex-wrap: nowrap;
   align-items: flex-end;
   height: 2em;
+  // overflow: hidden;
 }
 
 .__word {
-  flex: content;
+  flex: 0 1 content;
   position: relative;
   left: 0;
   font-weight: bold;
   font-size: 1.5em;
-  //   padding: 0 1em;
-  margin: auto;
+  margin-left: 1em;
 }
 
 .__audio_container {
-  align-self: flex-start;
-  align-items: flex-end;
+  flex: 1 0 auto;
   align-content: flex-end;
   display: inline-block;
   height: 1em;
   font-size: 1em;
+  padding-left: 1em;
   margin: auto;
 }
 
 .__audio_item {
   flex-grow: 50%;
-  align-self: flex-end;
   position: relative;
   display: inline-block;
   height: 1em;
+
+  margin-right: 1em;
   audio.__source {
     visibility: visible;
     position: absolute;
     height: 1em;
-    left: 1.5em;
+    left: 1.6em;
     opacity: 0;
   }
   .__type {
@@ -69,7 +71,6 @@
     font-style: italic;
   }
   .__phonetic_symbol {
-    // text-decoration: underline;
     border-bottom: 1px dashed;
     &:hover {
       color: green;
@@ -77,24 +78,54 @@
   }
 }
 
+.__hint {
+  display: inline-block;
+  min-height: 1em;
+  width: auto;
+}
+
 .__body {
   display: flex;
+  justify-content: space-between;
+  max-width: 30em;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
-  padding: 5px;
-  margin: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .__item {
   display: inline-block;
-  height: 1.5em;
+  flex: 1;
+  min-height: 1.5em;
+  justify-content: flex-end;
   span {
     display: inline-block;
-    width: 3em;
+    width: auto;
     padding-right: 1em;
     font-style: italic;
     font-weight: bold;
     font-size: 0.8em;
     text-align: right;
   }
+  .__tooltip {
+    margin: 5px;
+  }
+  &:hover .__hover_show {
+    display: block;
+    content: 'fdsfjl';
+    // position: absolute;
+    // top: 100%;
+  }
+}
+
+.__hover_show {
+  all: unset;
+  font-size: 10px;
+  display: none;
+  position: absolute;
+  top: 3.5em;
+  left: 1em;
+  text-overflow: ellipsis;
 }

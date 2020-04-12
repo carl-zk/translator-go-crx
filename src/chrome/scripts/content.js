@@ -21,7 +21,6 @@ function createNode() {
     }
     document.body.appendChild(div)
   }
-  console.log('create node done!!!!!!!!!!!!!')
 }
 
 createNode()

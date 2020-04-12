@@ -2,7 +2,7 @@ import translateService from './model/TranslateService'
 import QueryDTO from './model/QueryDTO'
 import './assets/styles/style.scss'
 
-let dto = new QueryDTO('en', 'zh', 'hello world', 'Sogou')
+let dto = new QueryDTO('en', 'zh', 'tutorial', 'Sogou')
 console.log(translateService.translate(dto))
 
 let div = document.createElement('div')

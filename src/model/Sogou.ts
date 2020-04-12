@@ -12,7 +12,7 @@ class Sogou implements Translator {
   async translate(queryDTO: QueryDTO) {
     let res: JSON
     res = await post('http://localhost:8090', { q: queryDTO.text })
-    console.log(res)
+    // console.log(res)
     let after = sogouResultAdapter(res)
 
     console.log(after)

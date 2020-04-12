@@ -1,9 +1,0 @@
-declare module '*.htm' {
-  const c: string
-  export default c
-}
-
-declare module '*.css' {
-  const c: any
-  export = c
-}

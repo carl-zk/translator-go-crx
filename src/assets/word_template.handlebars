@@ -1,8 +1,7 @@
 <div class='__result'>
   <div class=" __header">
-    <div class="__word __tooltip">
+    <div class="__word">
       {{word}}
-      <span class="__tooltiptext">{{dit}}</span>
     </div>
     <div class="__audio_container">
       {{#each phonetic}}
@@ -12,18 +11,19 @@
         <audio controls class="__source">
           <source src="https:{{filename}}" type="audio/mp3">
         </audio>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        {{!-- &nbsp;&nbsp;&nbsp;&nbsp; --}}
       </div>
       {{/each}}
     </div>
   </div>
+  <div class="__hint"></div>
   <div class="__body">
     {{#each content}}
     <div class="__item">
-      <span>{{this.pos}}</span>
-      <div class="__tooltip">
+      <div class=" __hover_show">{{this.zh}}</div>
+      <div>
+        <span>{{this.pos}}</span>
         {{this.en}}
-        <span class="__tooltiptext">{{this.zh}}</span>
       </div>
     </div>
     {{/each}}
