@@ -1,3 +1,6 @@
+import translateService from '../../model/TranslateService'
+import QueryDTO from '../../model/QueryDTO'
+
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.sync.set({ color: '#3aa757' }, function () {
     console.log('The color is green.')
@@ -9,26 +12,13 @@ chrome.runtime.onInstalled.addListener(function () {
 })
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log(
-    sender.tab
-      ? sender.tab.id + 'from a content script:' + sender.tab.url
-      : 'from the extension'
-  )
-
-  chrome.runtime.getPackageDirectoryEntry(function (root) {
-    root.getFile('translator/template.htm', { create: false }, function (
-      fileEntry
-    ) {
-      fileEntry.file((file) => {
-        var reader = new FileReader()
-        reader.onloadend = function (e) {
-          sendResponse({ farewell: this.result })
-          console.log(this.result)
-        }
-        reader.readAsText(file)
+  if (request.translate) {
+    translateService
+      .translate(new QueryDTO('auto', 'zh', request.translate))
+      .then((res) => {
+        sendResponse(res)
       })
-    })
-  })
+  }
   return true
 })
 

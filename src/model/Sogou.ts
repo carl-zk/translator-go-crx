@@ -2,7 +2,8 @@ import Translator from './Translator'
 import { KindStrings, TranslatorKind } from './TranslatorKind'
 import QueryDTO from './QueryDTO'
 import { post } from '../common/http'
-import * as template from '../assets/template.handlebars'
+import * as wordTemplate from '../assets/word_template.handlebars'
+import * as textTemplate from '../assets/text_template.handlebars'
 import { sogouResultAdapter } from '../common/utils'
 
 class Sogou implements Translator {
@@ -11,9 +12,11 @@ class Sogou implements Translator {
   async translate(queryDTO: QueryDTO) {
     let res: JSON
     res = await post('http://localhost:8090', { q: queryDTO.text })
+    console.log(res)
     let after = sogouResultAdapter(res)
+
     console.log(after)
-    return template(after)
+    return after.content ? wordTemplate(after) : textTemplate(after)
   }
 
   accept(kind: KindStrings) {

@@ -10,35 +10,24 @@
     "tabs"
   ],
   "background": {
-    "scripts": ["scripts/background.js", "scripts/hot-reload.js"],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["scripts/content.js"],
-      "css": ["styles/style.css"],
+      "js": ["content.js"],
+      "css": ["style.css"],
       "all_frames": true,
       "run_at": "document_idle"
     }
   ],
-  "browser_action": {
-    "default_title": "Translator Go",
-    "default_popup": "popup/popup.html",
-    "default_icon": {
-      "16": "images/icon16.png",
-      "32": "images/icon32.png",
-      "48": "images/icon48.png",
-      "128": "images/icon128.png"
-    }
-  },
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
-  "options_page": "option/options.html",
-  "web_accessible_resources": ["images/*.png", "styles/*", "translator/*.htm"],
+  "web_accessible_resources": ["images/*.png", "style.css"],
   "manifest_version": 2
 }

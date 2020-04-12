@@ -1,6 +1,10 @@
 function sogouResultAdapter(raw) {
-  let res = { word: raw['translate']['text'], dit: raw['translate']['dit'] }
-  if (raw['common_dict']) {
+  let res = {
+    word: raw['translate']['text'],
+    dit: raw['translate']['dit'],
+    content: null,
+  }
+  if (raw['common_dict'] && raw['common_dict']['dict']) {
     let obj = raw['common_dict']['dict'][0]['content'][0]['value'][0]
     res['content'] = []
     for (let x of obj['content']) {

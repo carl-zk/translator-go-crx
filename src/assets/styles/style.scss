@@ -15,6 +15,7 @@
 .__result {
   display: flex;
   flex-direction: column;
+  max-width: 40em;
   flex-wrap: wrap;
   padding: 5px;
   margin: 5px;
@@ -32,6 +33,8 @@
 
 .__word {
   flex: content;
+  position: relative;
+  left: 0;
   font-weight: bold;
   font-size: 1.5em;
   //   padding: 0 1em;

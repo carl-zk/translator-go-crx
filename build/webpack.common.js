@@ -4,14 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
     app: './src/index.ts',
+    content: './src/chrome/scripts/content.js',
+    background: './src/chrome/scripts/background.js',
   },
   output: {
     publicPath: '/',
-    filename: '[name].bundle.js',
+    // filename: '[name].bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
   },
   module: {
@@ -65,5 +69,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'style.css',
     }),
+    //new CopyPlugin([{ from: path.resolve(__dirname, 'src/assets/images'), to: 'dist/images' }]),
+    new CopyPlugin([
+      { from: 'src/assets/images', to: 'images' },
+      { from: 'src/chrome/manifest.json', to: '.' },
+    ]),
   ],
 }

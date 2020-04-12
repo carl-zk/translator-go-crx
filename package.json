@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config ./build/webpack.dev.js",
     "dev": "webpack-dev-server --open --config ./build/webpack.dev.js",
-    "pro": "webpack --config ./build/webpack.pro.js"
+    "pro": "webpack --config ./build/webpack.pro.js && rm dist/app.js dist/index.html"
   },
   "keywords": [
     "translator",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "axios": "^0.19.2",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.1",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
