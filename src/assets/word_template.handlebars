@@ -7,10 +7,12 @@
       {{#each phonetic}}
       <div class="__audio_item">
         <span class=" __type">{{this.type}} </span>
-        <span class="__phonetic_symbol">[{{this.text}}]</span>
-        <audio controls class="__source">
-          <source src="https:{{filename}}" type="audio/mp3">
-        </audio>
+        <div class="__phonetic_symbol">
+          [{{this.text}}]
+          <audio controls class="__source">
+            <source src="https:{{filename}}" type="audio/mp3">
+          </audio>
+        </div>
         {{!-- &nbsp;&nbsp;&nbsp;&nbsp; --}}
       </div>
       {{/each}}

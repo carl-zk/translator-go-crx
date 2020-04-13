@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack --config ./build/webpack.dev.js",
-    "dev": "webpack-dev-server --open --config ./build/webpack.dev.js",
+    "build": "npx webpack --config ./build/webpack.build.js && sh dist/hot-reload.sh",
+    "dev": "webpack-dev-server --env.dev --open --config ./build/webpack.dev.js --disable-host-check",
     "pro": "webpack --config ./build/webpack.pro.js && rm dist/app.js dist/index.html"
   },
   "keywords": [

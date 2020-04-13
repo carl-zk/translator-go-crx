@@ -1,7 +1,7 @@
 import { KindStrings } from './TranslatorKind'
-import QueryDTO from './QueryDTO'
+import QueryDto from './QueryDto'
 
 export default interface Translator {
-  translate(queryDTO: QueryDTO): Promise<string>
+  translate(queryDTO: QueryDto): Promise<string>
   accept(kind: KindStrings): boolean
 }

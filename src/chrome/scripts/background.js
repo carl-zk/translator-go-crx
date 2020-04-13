@@ -1,5 +1,5 @@
-import translateService from '../../model/TranslateService'
-import QueryDTO from '../../model/QueryDTO'
+import translateService from '../../core/TranslateService'
+import QueryDto from '../../core/QueryDto'
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.sync.set({ color: '#3aa757' }, function () {
@@ -14,7 +14,7 @@ chrome.runtime.onInstalled.addListener(function () {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.translate) {
     translateService
-      .translate(new QueryDTO('auto', 'zh', request.translate))
+      .translate(new QueryDto('auto', 'zh', request.translate))
       .then((res) => {
         sendResponse(res)
       })

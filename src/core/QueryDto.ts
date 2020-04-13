@@ -1,6 +1,6 @@
 import { KindStrings } from './TranslatorKind'
 
-export default class QueryDTO {
+export default class QueryDto {
   readonly from: string
   readonly to: string
   readonly text: string

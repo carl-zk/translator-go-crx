@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  overflow: hidden;
   max-width: 30em;
   min-height: 3em;
   flex-wrap: wrap;
@@ -36,52 +37,61 @@
 .__word {
   flex: 0 1 content;
   position: relative;
-  left: 0;
+  left: 1em;
   font-weight: bold;
   font-size: 1.5em;
-  margin-left: 1em;
+  align-self: start;
+  align-content: flex-end;
 }
 
 .__audio_container {
+  display: flex;
   flex: 1 0 auto;
-  align-content: flex-end;
-  display: inline-block;
-  height: 1em;
+  flex-direction: row;
   font-size: 1em;
-  padding-left: 1em;
-  margin: auto;
+  height: 1.5em;
+  padding-left: 2em;
 }
 
 .__audio_item {
-  flex-grow: 50%;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow: hidden;
   position: relative;
-  display: inline-block;
-  height: 1em;
-
-  margin-right: 1em;
-  audio.__source {
-    visibility: visible;
-    position: absolute;
-    height: 1em;
-    left: 1.6em;
-    opacity: 0;
-  }
+  width: fit-content;
+  padding-left: 1em;
   .__type {
+    display: contents;
+    height: 1em;
     font-weight: bold;
     font-style: italic;
+    margin: 0;
   }
   .__phonetic_symbol {
     border-bottom: 1px dashed;
+    margin: 0;
     &:hover {
       color: green;
+      cursor: pointer;
+    }
+    .__source {
+      position: absolute;
+      top: 5px;
+      left: 30px;
+      opacity: 0.01;
+      height: 1.5em;
     }
   }
 }
 
 .__hint {
   display: inline-block;
-  min-height: 1em;
+  position: relative;
+  min-height: 1.5em;
   width: auto;
+  pointer-events: none;
 }
 
 .__body {
@@ -100,6 +110,7 @@
   flex: 1;
   min-height: 1.5em;
   justify-content: flex-end;
+  margin-left: 5px;
   span {
     display: inline-block;
     width: auto;
@@ -114,9 +125,6 @@
   }
   &:hover .__hover_show {
     display: block;
-    content: 'fdsfjl';
-    // position: absolute;
-    // top: 100%;
   }
 }
 
@@ -125,7 +133,7 @@
   font-size: 10px;
   display: none;
   position: absolute;
-  top: 3.5em;
+  top: 4.5em;
   left: 1em;
   text-overflow: ellipsis;
 }

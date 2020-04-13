@@ -5,6 +5,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
+  entry: {
+    content: './src/chrome/scripts/content.js',
+    background: './src/chrome/scripts/background.js',
+  },
   output: {
     // filename: '[name].[contenthash].js',
     // chunkFilename: '[name].[contenthash].js',

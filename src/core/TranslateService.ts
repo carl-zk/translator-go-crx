@@ -1,14 +1,13 @@
 import Translator from './Translator'
-import QueryDTO from './QueryDTO'
+import QueryDto from './QueryDto'
 import sogou from './Sogou'
 
 class TranslateService {
   private translators: Translator[] = [sogou]
-  private using: number = 0
 
   private constructor() {}
 
-  async translate(queryDTO: QueryDTO) {
+  async translate(queryDTO: QueryDto) {
     let tor = this.translators[0]
     this.translators.forEach((x, i, a) => {
       if (x.accept(queryDTO.kind)) tor = x
