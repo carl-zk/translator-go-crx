@@ -11,6 +11,7 @@
   z-index: 800;
   box-sizing: border-box;
 }
+
 .__result {
   display: flex;
   flex-direction: column;
@@ -62,6 +63,7 @@
   position: relative;
   width: fit-content;
   padding-left: 1em;
+
   .__type {
     display: contents;
     height: 1em;
@@ -69,14 +71,18 @@
     font-style: italic;
     margin: 0;
   }
+
   .__phonetic_symbol {
     border-bottom: 1px dashed;
     margin: 0;
+
     &:hover {
       color: green;
       cursor: pointer;
     }
+
     .__source {
+      visibility: hidden;
       position: absolute;
       top: 5px;
       left: 30px;
@@ -111,6 +117,7 @@
   min-height: 1.5em;
   justify-content: flex-end;
   margin-left: 5px;
+
   span {
     display: inline-block;
     width: auto;
@@ -120,9 +127,11 @@
     font-size: 0.8em;
     text-align: right;
   }
+
   .__tooltip {
     margin: 5px;
   }
+
   &:hover .__hover_show {
     display: block;
   }

@@ -7,7 +7,7 @@
       {{#each phonetic}}
       <div class="__audio_item">
         <span class=" __type">{{this.type}} </span>
-        <div class="__phonetic_symbol">
+        <div class="__phonetic_symbol" onclick="((el)=>{el.querySelector('.__source').play()})(this)">
           [{{this.text}}]
           <audio controls class="__source">
             <source src="https:{{filename}}" type="audio/mp3">

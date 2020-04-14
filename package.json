@@ -16,7 +16,7 @@
     "翻译",
     "谷歌浏览器插件"
   ],
-  "author": "carl-zk <zxfspace@gmail.com>",
+  "author": "carl-zk <zxfspace@163.com>",
   "license": "MIT",
   "devDependencies": {
     "axios": "^0.19.2",
