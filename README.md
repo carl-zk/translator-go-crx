@@ -1,6 +1,8 @@
 # translator-go-crx
 Chrome 浏览器翻译插件
 
+![](captured.gif)
+
 简洁、立即翻译！长句子翻译准确！  
 代码简单，后端工程师也可以用来学习和定制化。  
 
