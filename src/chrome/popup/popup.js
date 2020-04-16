@@ -1,21 +1,15 @@
-'use strict';
+import { _AUTO_POP } from '../../common/constants'
+import Storage from '../../common/Storage'
 
-'use strict';
+var checkbox = document.querySelector(
+  'div.switch_pop .switch-wrap input[type=checkbox]'
+)
 
-'use strict';
+Storage.get(_AUTO_POP, true).then((res) => (checkbox.checked = res))
 
-let changeColor = document.getElementById("changeColor");
-
-chrome.storage.sync.get("color", function (data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute("value", data.color);
-});
-
-changeColor.onclick = function (element) {
-    let color = element.target.value;
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        console.log("changeColor: " + color);
-        // chrome.tabs.executeScript(
-        //     tabs[0].id, { code: 'document.body.style.backgroundColor = "' + color + '";' });
-    });
-};
+document
+  .querySelector('div.switch_pop .switch-wrap')
+  .addEventListener('click', () => {
+    checkbox.checked = !checkbox.checked
+    Storage.set(_AUTO_POP, checkbox.checked)
+  })

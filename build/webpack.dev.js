@@ -10,7 +10,7 @@ module.exports = merge(common, {
     contentBase: path.resolve(__dirname, '../dist'),
     compress: true,
     port: 9000,
-    writeToDisk: true,
+    writeToDisk: false,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',

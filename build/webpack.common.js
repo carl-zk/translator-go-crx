@@ -7,28 +7,21 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: {
     app: './src/index.ts',
-    // content: './src/chrome/scripts/content.js',
-    // background: './src/chrome/scripts/background.js',
+    content: './src/chrome/scripts/content.js',
+    background: './src/chrome/scripts/background.js',
+    popup: ['./src/chrome/popup/popup.js', './src/assets/styles/popup.scss'],
   },
   output: {
     publicPath: '/',
-    // filename: '[name].bundle.js',
     filename: '[name].js',
+    chunkFilename: '[name].[ext]',
     path: path.resolve(__dirname, '../dist'),
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        use: [
-          // {
-          //   loader:'style-loader',
-          //   options:{injectType:'linkTag'}
-          // },
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.tsx?$/,
@@ -40,9 +33,9 @@ module.exports = {
         include: path.resolve(__dirname, '../src/assets'),
         use: {
           loader: 'file-loader',
-          // options: {
-          //   name: '/assets/[name].[ext]',
-          // },
+          options: {
+            name: 'images/[name].[ext]',
+          },
         },
       },
       {
@@ -54,6 +47,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.html$/i,
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              attributes: false,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -63,13 +67,23 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Translator Go',
+      chunks: ['app'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: '[name].css',
+      chunkFilename: '[name].css',
     }),
     new CopyPlugin([
       { from: 'src/assets/images', to: 'images' },
       { from: 'src/chrome/manifest.json', to: '.' },
     ]),
+    new HtmlWebpackPlugin({
+      filename: 'popup.html',
+      template: 'src/chrome/popup/popup.html',
+      chunks: [],
+      options: {
+        attributes: false,
+      },
+    }),
   ],
 }

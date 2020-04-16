@@ -1,13 +1,11 @@
 import translateService from '../../core/TranslateService'
 import QueryDto from '../../core/QueryDto'
+import { _AUTO_POP } from '../../common/constants'
 
 chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.sync.set({ color: '#3aa757' }, function () {
-    console.log('The color is green.')
-  })
-
-  chrome.storage.sync.get(['color'], function (result) {
-    console.log('result is : ' + result.color)
+  chrome.storage.sync.get(_AUTO_POP, function (data) {
+    // let checked = data._AUTO_POP || true
+    // chrome.storage.sync.set({ key: checked }, () => {})
   })
 })
 

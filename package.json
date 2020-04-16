@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack --config ./build/webpack.build.js && sh dist/hot-reload.sh",
-    "dev": "webpack-dev-server --env.dev --open --config ./build/webpack.dev.js --disable-host-check",
+    "build": "npx webpack --config ./build/webpack.dev.js && sh dist/hot-reload.sh",
+    "dev": "webpack-dev-server --open --config ./build/webpack.dev.js --disable-host-check",
     "pro": "webpack --config ./build/webpack.pro.js && rm dist/app.js dist/index.html"
   },
   "keywords": [
@@ -19,7 +19,6 @@
   "author": "carl-zk <zxfspace@163.com>",
   "license": "MIT",
   "devDependencies": {
-    "axios": "^0.19.2",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.1",
@@ -30,10 +29,12 @@
     "file-loader": "^6.0.0",
     "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
+    "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.0.4",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "raw-loader": "^4.0.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",

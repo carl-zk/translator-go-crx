@@ -17,17 +17,27 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "css": ["style.css"],
+      "css": ["app.css"],
       "all_frames": true,
       "run_at": "document_idle"
     }
   ],
+  "browser_action": {
+    "default_title": "Translator Go",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
-  "web_accessible_resources": ["images/*.png", "style.css"],
+  "web_accessible_resources": ["images/*.png", "app.css", "popup.css"],
   "manifest_version": 2
 }
