@@ -1,16 +1,6 @@
 $width: 50px;
 $padding: 2px;
-$height: $width / 2+$padding;
-
-
-
-body {
-  display: flex;
-  align-items: flex-start;
-  // justify-content: center;
-  min-height: 100vh;
-  background: #f5f5f5;
-}
+$height: $width / 2 + $padding;
 
 .switch-wrap {
   cursor: pointer;
@@ -45,7 +35,7 @@ body {
 }
 
 input:checked {
-  +.switch {
+  + .switch {
     grid-template-columns: 1fr 1fr 0fr;
 
     &::after {
