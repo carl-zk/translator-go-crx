@@ -32,12 +32,19 @@
       "128": "images/icon128.png"
     }
   },
+  "options_page": "options.html",
   "icons": {
     "16": "images/icon16.png",
     "32": "images/icon32.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
-  "web_accessible_resources": ["images/*.png", "app.css", "popup.css"],
+  "web_accessible_resources": [
+    "images/*.png",
+    "app.css",
+    "popup.css",
+    "options.css",
+    "options.js"
+  ],
   "manifest_version": 2
 }

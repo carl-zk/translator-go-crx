@@ -1,0 +1,41 @@
+$stars: 1;
+$star-size: 20px;
+$star-spacing: 2px;
+$star-on-color: #f9df4a;
+$star-off-color: #cccccc;
+
+.rating {
+  width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
+  height: $star-size;
+  margin: 0 auto;
+  // padding: 40px 50px;
+  border: 1px solid #cccccc;
+  background: #f9f9f9;
+
+  label {
+    float: right;
+    position: relative;
+    width: $star-size;
+    height: $star-size;
+    cursor: pointer;
+    color: $star-off-color;
+
+    padding-right: $star-spacing;
+
+    &:before {
+      content: '\2605';
+      font-size: $star-size + 2px;
+      line-height: 1;
+    }
+  }
+
+  // input {
+  //   display: none;
+  // }
+
+  input:checked ~ label:before,
+  &:not(:checked) > label:hover:before,
+  &:not(:checked) > label:hover ~ label:before {
+    color: $star-on-color;
+  }
+}

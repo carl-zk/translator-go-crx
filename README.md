@@ -18,6 +18,9 @@ Chrome 浏览器翻译插件
 
   持续 40min 工作的同时，又能让狗狗自己玩，减少了丝许愧疚。工作累了还可以点击球球陪狗狗玩会儿。
 
+- Cards
+  ![](cards.gif)
+
 ## Brief
 
 这个插件分为两个部分，js 和 Python：  
@@ -48,7 +51,6 @@ Open `chrome://extensions/` add load `dist` directory.
 
 ## TODO
 
-加个卡片功能，记单词。  
 接个 anki？(https://github.com/ninja33/ODH)  
 iframe 大杂烩 (https://github.com/crimx/ext-saladict),值得学习  
 有意思的一点，上面 3 个项目都是两年前建的，有点不谋而合。  

@@ -1,4 +1,5 @@
 @import './tooltip';
+@import './star.scss';
 
 #__panel {
   font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
@@ -30,9 +31,13 @@
 .__header {
   display: flex;
   flex-wrap: nowrap;
-  align-items: flex-end;
+  justify-content: baseline;
+
   height: 2em;
   // overflow: hidden;
+  .rating {
+    margin: 5px 0 0 25px;
+  }
 }
 
 .__word {
@@ -43,15 +48,20 @@
   font-size: 1.5em;
   align-self: start;
   align-content: flex-end;
+  margin-right: 5px;
+}
+
+.__dit {
+  visibility: hidden;
 }
 
 .__audio_container {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 200%;
   flex-direction: row;
   font-size: 1em;
   height: 1.5em;
-  padding-left: 2em;
+  padding-top: 5px;
 }
 
 .__audio_item {

@@ -10,6 +10,10 @@ module.exports = {
     content: './src/chrome/scripts/content.js',
     background: './src/chrome/scripts/background.js',
     popup: ['./src/chrome/popup/popup.js', './src/assets/styles/popup.scss'],
+    options: [
+      './src/chrome/option/options.js',
+      './src/assets/styles/options.scss',
+    ],
   },
   output: {
     publicPath: '/',
@@ -80,6 +84,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'popup.html',
       template: 'src/chrome/popup/popup.html',
+      chunks: [],
+      options: {
+        attributes: false,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'options.html',
+      template: 'src/chrome/option/options.html',
       chunks: [],
       options: {
         attributes: false,
