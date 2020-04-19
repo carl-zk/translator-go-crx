@@ -1,5 +1,6 @@
 import { _AUTO_POP, _WORD_MAP } from '../../common/constants'
 import Storage from '../../common/Storage'
+import Card from '../../core/Card'
 
 var panel
 
@@ -58,25 +59,23 @@ function initOnMouse() {
 async function doTranslation(selectText, event) {
   let pop = await Storage.get([_AUTO_POP], true)
   if (!pop) return
-  let wordList = await Storage.get(_WORD_MAP, [])
-  let wordMap = new Map(wordList)
   chrome.runtime.sendMessage({ translate: selectText }, (res) => {
     panel.style.left = event.pageX + 5 + 'px'
     panel.style.top = event.pageY + 5 + 'px'
     panel.innerHTML = res
     show()
-    if (wordMap.has(selectText)) lightStar()
+    chrome.runtime.sendMessage({ card_has: selectText }, (res) => {
+      if (res) lightStar()
+    })
   })
 }
 
 function starWord() {
   lightStar()
-  let word = panel.querySelector('.__word')
-  let dit = panel.querySelector('.__dit')
-  Storage.get(_WORD_MAP, []).then((res) => {
-    let wordMap = new Map(res)
-    wordMap.set(word.innerHTML.trim(), dit.innerHTML.trim())
-    Storage.set(_WORD_MAP, Array.from(wordMap))
+  let word = panel.querySelector('.__word').innerHTML.trim()
+  let dit = panel.querySelector('.__dit').innerHTML.trim()
+  chrome.runtime.sendMessage({
+    card_save: new Card(word, dit, new Date().getTime()),
   })
 }
 

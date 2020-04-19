@@ -1,7 +1,8 @@
 import translateService from '../../core/TranslateService'
 import QueryDto from '../../core/QueryDto'
-import { _AUTO_POP, _FOCUS_WORKING } from '../../common/constants'
+import { _AUTO_POP, _FOCUS_WORKING, _CARD_LIST } from '../../common/constants'
 import Storage from '../../common/Storage'
+import CardService from '../../core/CardService.ts'
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.sync.get(_AUTO_POP, function (data) {
@@ -11,6 +12,7 @@ chrome.runtime.onInstalled.addListener(function () {
 })
 
 var _timer
+var _cardService
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.translate) {
@@ -39,6 +41,25 @@ function focusWorking(remain) {
       clearInterval(_timer)
     } else chrome.browserAction.setBadgeText({ text: '' + remain })
   }, 1000 * 60)
+}
+
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+  if (!_cardService) {
+    await initCardService()
+  }
+
+  if (request.card_has) {
+    sendResponse(_cardService.has(request.card_has))
+    return true
+  }
+  if (request.card_save) {
+    _cardService.save(request.card_save)
+  }
+})
+
+async function initCardService() {
+  let t = await Storage.get(_CARD_LIST, [])
+  _cardService = new CardService(t)
 }
 
 chrome.contextMenus.create({

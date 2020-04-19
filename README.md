@@ -43,7 +43,7 @@ npm run pro
 python3 src/backend/app.py
 ```
 
-Open `chrome://extensions/` add load `dist` directory.
+Open `chrome://extensions/` and load `dist` directory.
 
 ## Other
 

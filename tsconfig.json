@@ -9,7 +9,7 @@
     "strictNullChecks": true,
     "allowJs": true,
     "module": "CommonJS",
-    "target": "ES5",
+    "target": "ES6",
     "assumeChangesOnlyAffectDirectDependencies": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "types",
