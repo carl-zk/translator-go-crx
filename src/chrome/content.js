@@ -1,6 +1,6 @@
-import { _AUTO_POP, _WORD_MAP } from '../../common/constants'
-import Storage from '../../common/Storage'
-import Card from '../../core/Card'
+import { _AUTO_POP, _WORD_MAP } from '../common/constants'
+import Storage from '../common/Storage'
+import Card from '../core/Card'
 
 var panel
 

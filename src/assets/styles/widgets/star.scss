@@ -8,7 +8,6 @@ $star-off-color: #cccccc;
   width: ($star-size * $stars) + ($star-spacing * ($stars - 1));
   height: $star-size;
   margin: 0 auto;
-  // padding: 40px 50px;
   border: 1px solid #cccccc;
   background: #f9f9f9;
 
@@ -29,13 +28,9 @@ $star-off-color: #cccccc;
     }
   }
 
-  // input {
-  //   display: none;
-  // }
-
-  input:checked ~ label:before,
-  &:not(:checked) > label:hover:before,
-  &:not(:checked) > label:hover ~ label:before {
+  input:checked~label:before,
+  &:not(:checked)>label:hover:before,
+  &:not(:checked)>label:hover~label:before {
     color: $star-on-color;
   }
 }

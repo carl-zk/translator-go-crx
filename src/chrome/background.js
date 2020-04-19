@@ -1,8 +1,8 @@
-import translateService from '../../core/TranslateService'
-import QueryDto from '../../core/QueryDto'
-import { _AUTO_POP, _FOCUS_WORKING, _CARD_LIST } from '../../common/constants'
-import Storage from '../../common/Storage'
-import CardService from '../../core/CardService.ts'
+import translateService from '../core/TranslateService'
+import QueryDto from '../core/QueryDto'
+import { _AUTO_POP, _FOCUS_WORKING, _CARD_LIST } from '../common/constants'
+import Storage from '../common/Storage'
+import CardService from '../core/CardService.ts'
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.storage.sync.get(_AUTO_POP, function (data) {

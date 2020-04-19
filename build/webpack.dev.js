@@ -19,7 +19,7 @@ module.exports = merge(common, {
     },
   },
   plugins: [
-    new CopyPlugin([{ from: 'src/chrome/scripts/hot-reload.js', to: '.' }]),
+    new CopyPlugin([{ from: 'src/chrome/hot-reload.js', to: '.' }]),
     new CopyPlugin([{ from: 'src/chrome/hot-reload.sh', to: '.' }]),
   ],
 })

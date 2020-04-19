@@ -1,5 +1,4 @@
-@import './tooltip';
-@import './star.scss';
+@import './widgets/star.scss';
 
 #__panel {
   font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif, '宋体';
@@ -34,6 +33,7 @@
   justify-content: baseline;
 
   height: 2em;
+
   // overflow: hidden;
   .rating {
     margin: 5px 0 0 25px;

@@ -7,8 +7,8 @@ const CopyPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: {
     app: './src/index.ts',
-    content: './src/chrome/scripts/content.js',
-    background: './src/chrome/scripts/background.js',
+    content: './src/chrome/content.js',
+    background: './src/chrome/background.js',
     popup: ['./src/chrome/popup/popup.js', './src/assets/styles/popup.scss'],
     options: [
       './src/chrome/option/options.js',

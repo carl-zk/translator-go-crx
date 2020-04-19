@@ -1,5 +1,5 @@
-@import './switch.scss';
-@import './dog.scss';
+@import './widgets/switch.scss';
+@import './widgets/dog.scss';
 
 html {
   box-sizing: border-box;
@@ -63,7 +63,7 @@ body {
   margin-top: 120px;
   padding: 0;
 
-  & > * {
+  &>* {
     box-sizing: border-box;
     position: relative;
   }
