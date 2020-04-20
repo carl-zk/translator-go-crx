@@ -17,6 +17,8 @@ document.addEventListener('mouseup', (event) => {
     hide()
   } else if (_source.className == 'star5') {
     starWord()
+  } else if (_source.className == '__phonetic_symbol') {
+    _source.querySelector('.__source').play()
   }
 })
 

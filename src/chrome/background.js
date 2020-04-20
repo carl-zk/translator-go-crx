@@ -69,3 +69,53 @@ chrome.contextMenus.create({
     console.log(info.selectionText)
   },
 })
+
+chrome.webRequest.onBeforeRequest.addListener(
+  async (details) => {
+    let cookies = await getCookies()
+    console.log('cookies : ')
+    for (let ck of cookies) {
+      console.log(ck)
+      await setCookies(ck.name, ck.value)
+    }
+    return { cancel: false }
+  },
+  { urls: ['<all_urls>'] },
+  ['blocking']
+)
+
+function getCookies() {
+  return new Promise((resolve, reject) => {
+    chrome.cookies.getAll({ domain: 'fanyi.sogou.com' }, (cookies) => {
+      resolve(cookies)
+    })
+  })
+}
+
+function setCookies(na, va) {
+  return new Promise((res, rej) => {
+    chrome.cookies.set({
+      url: 'http://localhost:8090/?q=hello',
+      path: '/',
+      name: '' + na,
+      value: '' + va,
+      expirationDate: 1614864706.944615,
+      httpOnly: false,
+    })
+  })
+}
+
+chrome.webRequest.onHeadersReceived.addListener(
+  (details) => {
+    for (var i = 0; i < details.responseHeaders.length; ++i) {
+      console.log(details.responseHeaders[i])
+      if (details.responseHeaders[i].name === 'Content-Security-Policy') {
+        details.responseHeaders.splice(i, 1)
+        break
+      }
+    }
+    return { responseHeaders: details.responseHeaders }
+  },
+  { urls: ['https://github.com/*'] },
+  ['blocking', 'responseHeaders', 'extraHeaders']
+)
